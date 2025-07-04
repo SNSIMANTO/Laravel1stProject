@@ -16,5 +16,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/{name?}',function($name=null){
     $demo= "<h2>EMA HOW ARE YOU<h2>";
     $data=compact('name','demo');
-    return view('home')->with($data);
+    return view('home')->with($data); 
 });
