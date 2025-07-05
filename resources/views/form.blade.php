@@ -13,34 +13,62 @@
     <div class='items-center'>
     <form action="{{url('/')}}/register", method="post">
       @csrf
+     
       <div class='container'>
-          <h1 class='test-center'>Registration</h1>
+          
           <div class="form-group">
             <label for="">Name</label>
-            <input type="text" name="user_name" id="" class="form-control" placeholder="" aria-describedby="helpId">
-        <!-- <small id="helpId" class="text-muted">Help text</small> -->
+            <input type="text" name="user_name" id="" class="form-control"  value="{{old('user_name')}}">
+          <span class="text-danger">
+            @error("user_name")
+            {{$message}}
+            @enderror
+          </span>
           </div>
       </div>
       <div class='container'>
-          <h1 class='test-center'>Registration</h1>
+          
           <div class="form-group">
             <label for="">Email</label>
-            <input type="email" name="user_email" id="" class="form-control" placeholder="" aria-describedby="helpId">
-        <!-- <small id="helpId" class="text-muted">Help text</small> -->
+            <input type="email" name="user_email" id="" class="form-control" value="{{old('user_email')}}">
+            <span class="text-danger">
+            @error("user_email")
+            {{$message}}
+            @enderror
+            </span>
+        
           </div>
       </div>
       <div class='container'>
-          <h1 class='test-center'>Registration</h1>
+          
           <div class="form-group">
             <label for="">Password</label>
-            <input type="password" name="user_password" id="" class="form-control" placeholder="" aria-describedby="helpId">
-        <!-- <small id="helpId" class="text-muted">Help text</small> -->
+            <input type="password" name="user_password" id="" class="form-control">
+            <span class="text-danger">
+            @error("user_password")
+            {{$message}}
+            @enderror
+            </span>
           </div>
       </div>
-      <button class='btn btn-primary'>
-        submit
-      </button>
+      <div class='container'>
+          
+          <div class="form-group">
+            <label for="">Confirm Password</label>
+            <input type="password" name="password_confirmation" id="" class="form-control" >
+            <span class="text-danger">
+            @error("password_confirmation")
+            {{$message}}
+            @enderror
+            </span>
+          </div>
+      </div>
+      <div class='container'>
+         <button class='btn btn-primary'>
+            submit
+         </button>
+      </div>
 </form>
 </div>
-  </body>
+</body>
 </html>
