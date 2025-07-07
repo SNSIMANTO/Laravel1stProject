@@ -1,7 +1,8 @@
+
 <!doctype html>
-<html lang="en">
+<html lang="en"> 
   <head>
-    <title>Title</title>
+    <title>Form</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -13,57 +14,11 @@
     <div class='items-center'>
     <form action="{{url('/')}}/register", method="post">
       @csrf
-     
       <div class='container'>
-          
-          <div class="form-group">
-            <label for="">Name</label>
-            <input type="text" name="user_name" id="" class="form-control"  value="{{old('user_name')}}">
-          <span class="text-danger">
-            @error("user_name")
-            {{$message}}
-            @enderror
-          </span>
-          </div>
-      </div>
-      <div class='container'>
-          
-          <div class="form-group">
-            <label for="">Email</label>
-            <input type="email" name="user_email" id="" class="form-control" value="{{old('user_email')}}">
-            <span class="text-danger">
-            @error("user_email")
-            {{$message}}
-            @enderror
-            </span>
-        
-          </div>
-      </div>
-      <div class='container'>
-          
-          <div class="form-group">
-            <label for="">Password</label>
-            <input type="password" name="user_password" id="" class="form-control">
-            <span class="text-danger">
-            @error("user_password")
-            {{$message}}
-            @enderror
-            </span>
-          </div>
-      </div>
-      <div class='container'>
-          
-          <div class="form-group">
-            <label for="">Confirm Password</label>
-            <input type="password" name="password_confirmation" id="" class="form-control" >
-            <span class="text-danger">
-            @error("password_confirmation")
-            {{$message}}
-            @enderror
-            </span>
-          </div>
-      </div>
-      <div class='container'>
+          <x-input type="name" name="name" label="Please Enter Your Name"/>
+          <x-input type="email" name="email" label="Please Enter Your Email"/>
+          <x-input type="password" name="user_password" label="Please Enter Your Password"/>
+          <x-input type="password" name="password_confirmation" label="Please Confirm Your password"/>
          <button class='btn btn-primary'>
             submit
          </button>
