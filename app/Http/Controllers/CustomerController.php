@@ -47,7 +47,7 @@ class CustomerController extends Controller
         echo "<pre>";
         print_r($request->all());
 
-
+          //insert query
         $customer= new Customer;
         $customer->name=$request['name'];
         $customer->email=$request['gender'];
