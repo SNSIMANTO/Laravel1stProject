@@ -57,7 +57,7 @@ class CustomerController extends Controller
         $customer->dob=$request['dob'];
         $customer->password=md5($request['password']);
         $customer->save();
-
+        return redirect('/customer/view');
 
          $request->validate([
         'name' => 'required',
@@ -74,6 +74,16 @@ class CustomerController extends Controller
     ]);
 
     }
+    
+
+    public function view(){
+        
+
+        $customers=customer::all();
+        $data=compact('customers');
+        return view('Customer-view')->with($data);
+    }
+
 
     /**
      * Display the specified resource.

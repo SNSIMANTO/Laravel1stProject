@@ -36,3 +36,7 @@ Route::post('/register',[RegistrationControler::class,'register']);
 
 Route::get('/customer',[CustomerController::class,'index']);
 Route::post('/customer',[CustomerController::class,'store']);
+
+//select query in laravel using Eloquent ORM
+
+Route::get('/customer/view',[CustomerController::class,'view']);
