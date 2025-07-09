@@ -9,9 +9,7 @@ class CustomerController extends Controller
 {
     public function customer(Request $request)
     {
-        $request->validate([
-            //
-        ]);
+       
 
        //
     }

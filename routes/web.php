@@ -35,7 +35,7 @@ Route::post('/register',[RegistrationControler::class,'register']);
 // });
 
 Route::get('/customer',[CustomerController::class,'index']);
-Route::post('/customer',[CustomerController::class,'store']);
+Route::post('/customer',[CustomerController::class,'store'])->name('customer.create');
 
 //select query in laravel using Eloquent ORM
 
