@@ -89,6 +89,13 @@ class CustomerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    public function delete($id){
+      $custom = Customer::find($id); // Find customer with ID 1
+      if(!is_null($custom)){
+      $custom->delete();// Delete the record 
+      }
+      return redirect('/customer/view');
+    }
     public function show($id)
     {
         //

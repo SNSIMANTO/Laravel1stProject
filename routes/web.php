@@ -40,3 +40,5 @@ Route::post('/customer',[CustomerController::class,'store'])->name('customer.cre
 //select query in laravel using Eloquent ORM
 
 Route::get('/customer/view',[CustomerController::class,'view']);
+//deletequery
+Route::get('/customer/delete/{id}',[CustomerController::class,'delete'])->name('customer.delete');

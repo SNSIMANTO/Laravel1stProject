@@ -51,6 +51,7 @@
                     <th>DOB</th>
                     <th>Status</th>
                     <th>Points</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -74,12 +75,24 @@
                     <td>{{$as->dob}}</td>
                     <td>
                        @if ($as->status=="1")
-                       Active
+                      <a href="">
+                       <button class="btn">
+                        <span class="badge badge-success"> Active </span>
+                      </button>
+                      </a>
                        @else
-                       Not Active
+                       <a href="">
+                       <button class="btn">
+                        <span class="badge badge-danger">Active </span>
+                      </button>
+                      </a>
                        @endif
                     </td>
                     <td>{{$as->points}}</td>
+                    <td>
+                      <a href="{{route('customer.delete',['id'=> $as->customer_id])}}"><button class="btn btn-danger"> Delete</button></a>
+                    </td>
+                    <td class="btn btn-primary">Edit</td>
                 </tr>
                 @endforeach
             </tbody>
