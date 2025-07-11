@@ -20,7 +20,9 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        return view('customer');
+        $url=url('/customer');
+        $data=compact('url');
+        return view('customer')->with($data);
     }
 
     /**
@@ -109,7 +111,16 @@ class CustomerController extends Controller
      */
     public function edit($id)
     {
-        //
+        $some=Customer::find($id);
+        if(!is_null($some)){
+            $data=compact('some');
+        return view('customer')->with('$data');}
+        else
+        {
+          $url=url('/customer/update')."/".$id;  
+            return redirect('/customer');}
+        
+    
     }
 
     /**

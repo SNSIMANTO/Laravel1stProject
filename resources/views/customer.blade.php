@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Customer List</title>
+    <title>New Customer</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -38,7 +38,7 @@
 </div>
 <div class="container mt-5">
     <h2 class="mb-4">Add New Customer</h2>
-    <form action="{{ url('/customer') }}" method="POST">
+    <form action="{{url('/customer')}}" method="POST">
         @csrf
         <div class="form-group">
             <label>Name:</label>

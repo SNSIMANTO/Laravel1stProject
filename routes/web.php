@@ -42,3 +42,6 @@ Route::post('/customer',[CustomerController::class,'store'])->name('customer.cre
 Route::get('/customer/view',[CustomerController::class,'view']);
 //deletequery
 Route::get('/customer/delete/{id}',[CustomerController::class,'delete'])->name('customer.delete');
+//update data from the database
+Route::get('/customer/edit/{id}',[CustomerController::class,'edit'])->name('customer.edit');
+Route::post('customer/update/{id}',[CustomerController::class,'update'])->name('customer.upadte');
