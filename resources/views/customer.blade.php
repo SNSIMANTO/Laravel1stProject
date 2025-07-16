@@ -37,12 +37,12 @@
   </div>
 </div>
 <div class="container mt-5">
-    <h2 class="mb-4">Add New Customer</h2>
-    <form action="{{url('/customer')}}" method="POST">
+    <h2 class="mb-4">@if(isset($customer))Update @else Add New @endif Customer</h2>
+    <form action="@if(isset($customer)){{route('customer.upadte',['id'=> $as->customer_id])}}@else{{url('/customer')}}@endif" method="POST">
         @csrf
         <div class="form-group">
             <label>Name:</label>
-            <input type="text" name="name" class="form-control" value="{{old('name')}}">
+            <input type="text" name="name" class="form-control" value="@if(isset($customer)){{$customer->name}}@else{{old('name')}}@endif">
             <span class="text-danger">
                 @error('name')
                 {{$message}}
@@ -159,21 +159,10 @@
 
     <hr>
 
-    <h2 class="mt-5">Customer List</h2>
-    @if(session('success'))
-        <div class="alert alert-success">{{ session('success') }}</div>
-    @endif
-
-    <table class="table table-bordered mt-3">
-        <thead>
-        <tr>
-            <th>ID</th><th>Name</th><th>Email</th><th>Gender</th>
-            <th>Address</th><th>State</th><th>Country</th><th>DOB</th>
-            <th>Status</th><th>Points</th>
-        </tr>
-        </thead>
-        
-    </table>
+    
 </div>
 </body>
 </html>
+
+
+3.38.22

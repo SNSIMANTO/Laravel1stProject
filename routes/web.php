@@ -34,12 +34,12 @@ Route::post('/register',[RegistrationControler::class,'register']);
 //     print_r($customers->toArray());
 // });
 
-Route::get('/customer',[CustomerController::class,'index']);
-Route::post('/customer',[CustomerController::class,'store'])->name('customer.create');
+Route::get('/customer/create',[CustomerController::class,'create'])->name('customer.create');
+Route::post('/customer/create',[CustomerController::class,'create']);
 
-//select query in laravel using Eloquent ORM
+//select query in laravel using Eloquent ORM 
 
-Route::get('/customer/view',[CustomerController::class,'view']);
+Route::get('/customer/view',[CustomerController::class,'view'])->name('customer.view');
 //deletequery
 Route::get('/customer/delete/{id}',[CustomerController::class,'delete'])->name('customer.delete');
 //update data from the database

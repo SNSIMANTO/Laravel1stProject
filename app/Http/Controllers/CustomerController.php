@@ -20,9 +20,7 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        $url=url('/customer');
-        $data=compact('url');
-        return view('customer')->with($data);
+        //
     }
 
     /**
@@ -32,19 +30,9 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        //
-    }
+        return view('customer');
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        
-        echo "<pre>";
+         echo "<pre>";
         print_r($request->all());
 
           //insert query
@@ -72,12 +60,23 @@ class CustomerController extends Controller
         'status'=>'required',
         'points'=>'required|numeric'
     ]);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        
+       //
 
     }
     
 
     public function view(){
-        
 
         $customers=customer::all();
         $data=compact('customers');
@@ -111,16 +110,16 @@ class CustomerController extends Controller
      */
     public function edit($id)
     {
-        $some=Customer::find($id);
-        if(!is_null($some)){
-            $data=compact('some');
-        return view('customer')->with('$data');}
-        else
-        {
-          $url=url('/customer/update')."/".$id;  
-            return redirect('/customer');}
-        
-    
+        $customer=Customer::find($id);
+        if(is_null($customer)){
+            //not found
+            return redirect('/customer/view');
+        }
+        else{
+            //found
+            $data=compact('customer');
+            return view('customer')->with($data);
+        }
     }
 
     /**
