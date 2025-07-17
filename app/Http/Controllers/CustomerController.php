@@ -20,7 +20,7 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        //
+        return view('customer');
     }
 
     /**
@@ -30,10 +30,6 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        return view('customer');
-
-         echo "<pre>";
-        print_r($request->all());
 
           //insert query
         $customer= new Customer;
@@ -60,6 +56,8 @@ class CustomerController extends Controller
         'status'=>'required',
         'points'=>'required|numeric'
     ]);
+    echo "<pre>";
+        print_r($request->all());
     }
 
     /**

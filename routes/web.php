@@ -34,7 +34,7 @@ Route::post('/register',[RegistrationControler::class,'register']);
 //     print_r($customers->toArray());
 // });
 
-Route::get('/customer/create',[CustomerController::class,'create'])->name('customer.create');
+Route::get('/customer/create',[CustomerController::class,'index'])->name('customer.create');
 Route::post('/customer/create',[CustomerController::class,'create']);
 
 //select query in laravel using Eloquent ORM 

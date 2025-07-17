@@ -38,7 +38,7 @@
 </div>
 <div class="container mt-5">
     <h2 class="mb-4">@if(isset($customer))Update @else Add New @endif Customer</h2>
-    <form action="@if(isset($customer)){{route('customer.upadte',['id'=> $as->customer_id])}}@else{{url('/customer')}}@endif" method="POST">
+    <form action="@if(isset($customer)){{route('customer.upadte',['id'=> $customer->customer_id])}}@else{{url('/customer')}}@endif" method="POST">
         @csrf
         <div class="form-group">
             <label>Name:</label>
