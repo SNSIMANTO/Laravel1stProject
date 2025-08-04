@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>New Customer</title>
+    <title>Customer</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -38,7 +38,7 @@
 </div>
 <div class="container mt-5">
     <h2 class="mb-4">@if(isset($customer))Update @else Add New @endif Customer</h2>
-    <form action="@if(isset($customer)){{route('customer.upadte',['id'=> $customer->customer_id])}}@else{{url('/customer')}}@endif" method="POST">
+    <form action="@if(isset($customer)){{route('customer.upadte',['id'=> $customer->customer_id])}}@else{{route('customer.create')}}@endif" method="POST">
         @csrf
         <div class="form-group">
             <label>Name:</label>
@@ -52,7 +52,7 @@
 
         <div class="form-group">
             <label>Email:</label>
-            <input type="text" name="email" class="form-control" value="{{old('email')}}">
+            <input type="text" name="email" class="form-control" value="@if(isset($customer)){{$customer->email}}@else{{old('email')}}@endif">
             <span class="text-danger">
                 @error('email')
                 {{$message}}
@@ -63,9 +63,9 @@
         <div class="form-group">
             <label>Gender:</label><br>
             <select name="gender" class="form-control">
-                <option value="M">Male</option>
-                <option value="F">Female</option>
-                <option value="O">Other</option>
+                <option value="M" @if(isset($customer)){{$customer->gender == 'M' ? 'selected' : ''}}@endif>Male</option>
+                <option value="F" @if(isset($customer)){{$customer->gender == 'F' ? 'selected' : ''}}@endif>Female</option>
+                <option value="O" @if(isset($customer)){{$customer->gender == 'O' ? 'selected' : ''}}@endif>Other</option>
             </select>
             <span class="text-danger">
                 @error('gender')
@@ -76,7 +76,7 @@
 
         <div class="form-group">
             <label>Address:</label>
-            <input name="address" class="form-control" value="{{old('address')}}">
+            <input name="address" class="form-control" value="@if(isset($customer)){{$customer->address}}@else{{old('address')}}@endif">
         <span class="text-danger">
                 @error('address')
                 {{$message}}
@@ -86,7 +86,7 @@
 
         <div class="form-group">
             <label>State:</label>
-            <input type="text" name="state" class="form-control" value="{{old('state')}}">
+            <input type="text" name="state" class="form-control" value="@if(isset($customer)){{$customer->state}}@else{{old('state')}}@endif">
             <span class="text-danger">
                 @error('state')
                 {{$message}}
@@ -96,7 +96,7 @@
 
         <div class="form-group">
             <label>Country:</label>
-            <input type="text" name="country" class="form-control" value="{{old('country')}}">
+            <input type="text" name="country" class="form-control" value="@if(isset($customer)){{$customer->country}}@else{{old('country')}}@endif">
             <span class="text-danger">
                 @error('country')
                 {{$message}}
@@ -106,7 +106,7 @@
 
         <div class="form-group">
             <label>Date of Birth:</label>
-            <input type="date" name="dob" class="form-control" value="{{old('dob')}}">
+            <input type="date" name="dob" class="form-control" value="@if(isset($customer)){{$customer->dob}}@else{{old('dob')}}@endif">
             <span class="text-danger">
                 @error('dob')
                 {{$message}}
@@ -136,7 +136,7 @@
 
         <div class="form-group">
             <label>Status:</label>
-            <input type="text" name="status" class="form-control" value="{{old('status')}}">
+            <input type="text" name="status" class="form-control" value="@if(isset($customer)){{$customer->status}}@else{{old('status')}}@endif">
             <span class="text-danger">
                 @error('status')
                 {{$message}}
@@ -146,7 +146,7 @@
 
         <div class="form-group">
             <label>Points:</label>
-            <input type="number" name="points" class="form-control" value="{{old('points')}}">
+            <input type="number" name="points" class="form-control" value="@if(isset($customer)){{$customer->points}}@else{{old('points')}}@endif">
             <span class="text-danger">
                 @error('points')
                 {{$message}}
@@ -154,7 +154,7 @@
             </span>
         </div>
 
-        <button type="submit" class="btn btn-primary">Add Customer</button>
+        <button type="submit" class="btn btn-primary">@if(isset($customer))Update Customer @else {{'Add Customer'}} @endif</button>
     </form>
 
     <hr>

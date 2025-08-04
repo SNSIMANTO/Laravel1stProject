@@ -66,9 +66,7 @@
                         Female
                         @else
                         Other
-                        @endif
-
-                    </td>
+                        @endif</td>
                     <td>{{$as->address}}</td>
                     <td>{{$as->state}}</td>
                     <td>{{$as->country}}</td>

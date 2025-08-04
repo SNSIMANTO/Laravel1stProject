@@ -9,7 +9,7 @@ class CustomerController extends Controller
 {
     public function customer(Request $request)
     {
-       
+
 
        //
     }
@@ -28,36 +28,39 @@ class CustomerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
+         $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'gender'=> 'required',
+            'address'=>'required',
+            'state'=>'required',
+            'country'=>'required',
+            'dob'=>'required',
+            'password'=>'required',
+            'password_confirmation' => 'required|same:password',
+            'status'=>'required|numeric',
+            'points'=>'required|numeric'
+        ]);
 
           //insert query
         $customer= new Customer;
         $customer->name=$request['name'];
-        $customer->email=$request['gender'];
+        $customer->email=$request['email'];
+        $customer->gender = $request['gender'];
         $customer->address=$request['address'];
+
         $customer->state=$request['state'];
         $customer->country=$request['country'];
         $customer->dob=$request['dob'];
+        $customer->status = $request['status'];
+        $customer->points = $request['points'];
         $customer->password=md5($request['password']);
         $customer->save();
-        return redirect('/customer/view');
-
-         $request->validate([
-        'name' => 'required',
-        'email' => 'required|email',
-        'gender'=> 'required',
-        'address'=>'required',
-        'state'=>'required',
-        'country'=>'required',
-        'dob'=>'required',
-        'password'=>'required',
-        'password_confirmation' => 'required|same:password',
-        'status'=>'required',
-        'points'=>'required|numeric'
-    ]);
-    echo "<pre>";
-        print_r($request->all());
+        return redirect('/customer/view'); // return er pore kono line exicute hoina ok?yes
+        // echo "<pre>";
+        // print_r($request->all());
     }
 
     /**
@@ -68,11 +71,11 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        
+
        //
 
     }
-    
+
 
     public function view(){
 
@@ -91,7 +94,7 @@ class CustomerController extends Controller
     public function delete($id){
       $custom = Customer::find($id); // Find customer with ID 1
       if(!is_null($custom)){
-      $custom->delete();// Delete the record 
+      $custom->delete();// Delete the record
       }
       return redirect('/customer/view');
     }
@@ -129,7 +132,18 @@ class CustomerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $customer= Customer::find($id);
+        $customer->name=$request['name'];
+        $customer->email=$request['email'];
+        $customer->address=$request['address'];
+        $customer->state=$request['state'];
+        $customer->country=$request['country'];
+        $customer->dob=$request['dob'];
+        $customer->save();
+
+
+        //write updated query here, follow the create query
+        return redirect('/customer/view');
     }
 
     /**

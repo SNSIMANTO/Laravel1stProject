@@ -45,7 +45,7 @@
           <x-input type="password" name="user_password" label="Please Enter Your Password"/>
           <x-input type="password" name="password_confirmation" label="Please Confirm Your password"/>
          <button class='btn btn-primary'>
-            submit
+            Submit
          </button>
       </div>
 </form>
