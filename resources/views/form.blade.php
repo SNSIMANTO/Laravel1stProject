@@ -1,54 +1,68 @@
-
 <!doctype html>
-<html lang="en"> 
-  <head>
-    <title>Form</title>
-    <!-- Required meta tags -->
+<html lang="en">
+<head>
+    <title>Register Form</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  </head>
-  <body>
-    <div class="container-fluid bg-dark">
-  <div class="container">
-    <nav class="navbar navbar-expand-sm">
-      <a class="navbar-brand" href="#" style="color: white">SN SIMANTO</a>
-      <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse"
-        data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
-        aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="collapsibleNavId">
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" href="{{url('/')}}" style="color: white">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{url('/register')}}" style="color: white">Register</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{url('/customer/view')}}" style="color: white">Customer</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  </div>
+    <!-- Bootstrap 4 CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <style>
+      body {
+          background: #f8f9fa;
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+      .card {
+          margin-top: 50px;
+          box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="container-fluid bg-dark">
+    <div class="container">
+        <nav class="navbar navbar-expand-sm">
+            <a class="navbar-brand text-white" href="#">SN SIMANTO</a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item"><a class="nav-link text-white" href="{{url('/')}}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="{{url('/register')}}">Register</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="{{url('/customer/view')}}">Customer</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
 </div>
-    <div class='items-center'>
-    <form action="{{url('/')}}/register", method="post">
-      @csrf
-      <div class='container'>
-          <x-input type="name" name="name" label="Please Enter Your Name"/>
-          <x-input type="email" name="email" label="Please Enter Your Email"/>
-          <x-input type="password" name="user_password" label="Please Enter Your Password"/>
-          <x-input type="password" name="password_confirmation" label="Please Confirm Your password"/>
-         <button class='btn btn-primary'>
-            Submit
-         </button>
-      </div>
-</form>
+
+<!-- Form Section -->
+<div class="container d-flex justify-content-center">
+    <div class="card w-50">
+        <div class="card-header bg-primary text-white text-center">
+            <h4>User Registration</h4>
+        </div>
+        <div class="card-body">
+            <form action="{{ url('/') }}/register" method="POST">
+                @csrf
+                <div>
+                  <div>
+                      <x-input type="name" name="name" label="Please Enter Your Name"/>
+                      <x-input type="email" name="email" label="Please Enter Your Email"/>
+                      <x-input type="password" name="user_password" label="Please Enter Your Password"/>
+                      <div>
+                           <x-input type="password" name="password_confirmation" label="Confirm Your Password"/>
+                      </div>
+                  </div>
+                  <div class="text-center mt-4">
+                      <button class="btn btn-primary">Register</button>
+                  </div>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
+
 </body>
 </html>

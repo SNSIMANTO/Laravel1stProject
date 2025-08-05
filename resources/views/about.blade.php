@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @push('sn')
-<title>about</title>
+<title>About</title>
 @endpush
 @section('main-section')
 <h1 class='text-center' class='container'>
