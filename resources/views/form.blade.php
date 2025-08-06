@@ -25,7 +25,7 @@
 <div class="container-fluid bg-dark">
     <div class="container">
         <nav class="navbar navbar-expand-sm">
-            <a class="navbar-brand text-white" href="#">SN SIMANTO</a>
+            <p class="navbar-brand text-white">SN SIMANTO</p>
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item"><a class="nav-link text-white" href="{{url('/')}}">Home</a></li>
@@ -39,9 +39,9 @@
 
 <!-- Form Section -->
 <div class="container d-flex justify-content-center">
-    <div class="card w-50">
+    <div class="card w-50 h-70">
         <div class="card-header bg-primary text-white text-center">
-            <h4>User Registration</h4>
+            <h3>User Registration</h3>
         </div>
         <div class="card-body">
             <form action="{{ url('/') }}/register" method="POST">
@@ -51,9 +51,7 @@
                       <x-input type="name" name="name" label="Please Enter Your Name"/>
                       <x-input type="email" name="email" label="Please Enter Your Email"/>
                       <x-input type="password" name="user_password" label="Please Enter Your Password"/>
-                      <div>
-                           <x-input type="password" name="password_confirmation" label="Confirm Your Password"/>
-                      </div>
+                      <x-input type="password" name="password_confirmation" label="re Enter Your Password"/>
                   </div>
                   <div class="text-center mt-4">
                       <button class="btn btn-primary">Register</button>

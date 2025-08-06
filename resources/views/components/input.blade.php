@@ -1,4 +1,4 @@
-<div class="form-group">
+    <div class="form-group">
             <label for="">{{$label}}</label>
             <input type="{{$type}}" name="{{$name}}" id="" class="form-control" >
           <span class="text-danger">
@@ -7,4 +7,3 @@
             @enderror
           </span>
           </div>
-      </div>

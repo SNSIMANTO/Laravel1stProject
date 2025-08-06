@@ -240,15 +240,15 @@ footer audio{
         <h1>Hello I'm</h1>
         <h3 id="ocean-design"> SHANUR MURSALIN SIMANTO </h3>
         <p>Adept at problem-solving, communication, and teamwork, with a commitment to continuous personal and professional development.</p>
-        <a href="HireMe.html" class="star-button">HIRE ME</a>
+        <a href="{{url('/hireme')}}" class="star-button">HIRE ME</a>
     </div>
     <div class="Half-Width">
-        <img src="images/image%2016.png" >
+        <img src="{{asset('/')}}image/image 16.png" >
     </div>
 </section>
 <section class="banner-two">
     <div class="Half-Width">
-        <img src="images/image%2015.png" >
+        <img src="{{asset('/')}}image/image 15.png" >
     </div>
     <div class="Half-Width">
         <h2>BIOGRAPHY</h2>
@@ -266,7 +266,7 @@ footer audio{
 <section class="banner-three">
     <p id="the">Projects</p>
     <div class="photo-box">
-        <img src="images/latest-work/work-1.png">
+        <img src="{{asset('/')}}image/latest-work/work-1.png">
 
     </div>
     <div class="photo-box">
@@ -274,7 +274,7 @@ footer audio{
 
     </div>
     <div class="photo-box">
-        <img src="images/latest-work/work-3.jpg">
+        <img src="{{asset('/')}}image/latest-work/work-3.jpg">
 
     </div>
 </section>
@@ -292,7 +292,9 @@ footer audio{
     </div>
 </section>
 <footer>
-    <audio controls src="music/Bhalolaage.mp3"></audio>
+    <audio controls>
+        <source src="{{asset('/')}}music/Bhalolaage.mp3" type="audio/mp3">
+    </audio>
     <p> @ 2025, All rights reserved.</p>
 </footer>
   </body>

@@ -81,7 +81,7 @@
                        @else
                        <a href="">
                        <button class="btn">
-                        <span class="badge badge-danger">Active </span>
+                        <span class="badge badge-danger">Inactive </span>
                       </button>
                       </a>
                        @endif

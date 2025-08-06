@@ -139,6 +139,10 @@ class CustomerController extends Controller
         $customer->state=$request['state'];
         $customer->country=$request['country'];
         $customer->dob=$request['dob'];
+        $customer->status=$request['status'];
+        $customer->points=$request['points'];
+
+
         $customer->save();
 
 
@@ -155,5 +159,8 @@ class CustomerController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function hireme(){
+          return view('Hireme');
     }
 }
