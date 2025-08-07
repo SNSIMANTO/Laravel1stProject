@@ -70,6 +70,8 @@
                     <td>{{$as->address}}</td>
                     <td>{{$as->state}}</td>
                     <td>{{$as->country}}</td>
+                    {{-- <td>{{$as->dob}}</td> if we use this the date will not be formatted ,use helper functon to make the date formatted --}}
+                    {{-- <td>{{get_formatted_date($as->dob,"d-M-Y")}}</td> while i am using helper to change the data format in the database --}}
                     <td>{{$as->dob}}</td>
                     <td>
                        @if ($as->status=="1")

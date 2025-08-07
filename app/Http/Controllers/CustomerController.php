@@ -30,6 +30,8 @@ class CustomerController extends Controller
      */
     public function create(Request $request)
     {
+        // p($request->all() );
+        // die;
          $request->validate([
             'name' => 'required',
             'email' => 'required|email',
