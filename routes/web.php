@@ -7,6 +7,7 @@ use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\RegistrationControler;
 use App\Models\customer;
 use App\Http\Controllers\CustomerController;
+use Illuminate\Http\Request; //data storeing
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -47,3 +48,22 @@ Route::get('/customer/edit/{id}',[CustomerController::class,'edit'])->name('cust
 Route::post('customer/update/{id}',[CustomerController::class,'update'])->name('customer.upadte');
 
 Route::get('/hireme',[CustomerController::class,'hireme']);
+
+
+//session helper laravel(data retrieving..)
+Route::get('get-all-session',function(){
+    $session=session()->all();
+    p($session);
+});
+
+//session helper laravel(data storing..)
+Route::get('set-session',function(Request $request){
+    $request->session()->put('user_name','SN Simanto');
+    $request->session()->put('user_id','1');
+    return redirect('get-all-session');
+
+});
+
+//session helper laravel(data deleting..)
+
+
