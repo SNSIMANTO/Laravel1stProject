@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Customers</title>
+    <title>Trash Customers</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -13,7 +13,7 @@
     <div class="container-fluid bg-dark">
   <div class="container">
     <nav class="navbar navbar-expand-sm">
-      <a class="navbar-brand" href="" style="color: white">
+      <a class="navbar-brand" href="#" style="color: white">
         @if(session()->has('user_name'))
                     {{session()->get('user_name')}}
                     @else
@@ -45,8 +45,8 @@
         <a href="{{route('customer.create')}}">
             <button class="btn btn-primary d-inline-block m-2 float-right">Add</button>
         </a>
-        <a href="{{route('customer.trash')}}">
-            <button class="btn btn-danger d-inline-block m-2 float-right">Go to Trash</button>
+        <a href="{{url('customer/view')}}">
+            <button class="btn btn-primary d-inline-block m-2 float-right">GO TO CUSTOMERS</button>
         </a>
         <table class="table">
             <thead>
@@ -99,10 +99,10 @@
                     </td>
                     <td>{{$as->points}}</td>
                     <td>
-                      <a href="{{route('customer.delete',['id'=> $as->customer_id])}}"><button class="btn btn-danger">Trash</button></a>
+                      <a href="{{route('customer.force-delete',['id'=> $as->customer_id])}}"><button class="btn btn-danger">Delete</button></a>
                     </td>
                     <td>
-                      <a href="{{route('customer.edit',['id'=> $as->customer_id])}}"><button class="btn btn-primary"> Edit</button></a>
+                      <a href="{{route('customer.restore',['id'=> $as->customer_id])}}"><button class="btn btn-primary">Restore</button></a>
                     </td>
                 </tr>
                 @endforeach

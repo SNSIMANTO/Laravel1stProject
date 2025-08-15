@@ -13,7 +13,12 @@
     <div class="container-fluid bg-dark">
         <div class="container">
             <nav class="navbar navbar-expand-sm">
-                <a class="navbar-brand" href="{{url('/')}}" style="color: white">SN SIMANTO</a>
+                <a class="navbar-brand" href="{{url('/')}}" style="color: white">
+                @if(session()->has('user_name'))
+                    {{session()->get('user_name')}}
+                    @else
+                    Guest
+                    @endif</a>
                 <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse"
                     data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
                     aria-expanded="false" aria-label="Toggle navigation">

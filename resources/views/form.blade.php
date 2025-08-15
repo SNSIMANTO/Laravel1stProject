@@ -25,7 +25,13 @@
 <div class="container-fluid bg-dark">
     <div class="container">
         <nav class="navbar navbar-expand-sm">
-            <p class="navbar-brand text-white">SN SIMANTO</p>
+            <p class="navbar-brand text-white">
+                @if(session()->has('user_name'))
+                    {{session()->get('user_name')}}
+                    @else
+                    Guest
+                    @endif
+            </p>
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item"><a class="nav-link text-white" href="{{url('/')}}">Home</a></li>

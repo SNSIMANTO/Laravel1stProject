@@ -85,6 +85,12 @@ class CustomerController extends Controller
         $data=compact('customers');
         return view('Customer-view')->with($data);
     }
+    public function trash(){
+
+        $customers=customer::onlyTrashed()->get();
+        $data=compact('customers');
+        return view('Customer-trash')->with($data);
+    }
 
 
     /**
@@ -97,6 +103,23 @@ class CustomerController extends Controller
       $custom = Customer::find($id); // Find customer with ID 1
       if(!is_null($custom)){
       $custom->delete();// Delete the record
+      }
+      return redirect('/customer/view');
+    }
+
+    public function forceDelete($id){
+      $custom = Customer::withTrashed()->find($id); // Find customer with ID 1
+      if(!is_null($custom)){
+      $custom->forceDelete();// delete parmanently the record
+      }
+      return redirect('/customer/trash');
+    }
+
+//RESTORE THE DETA FROM THE TRASH
+    public function restore($id){
+      $custom = Customer::withTrashed()->find($id); // Find customer with ID 1
+      if(!is_null($custom)){
+      $custom->restore();// restore the record
       }
       return redirect('/customer/view');
     }

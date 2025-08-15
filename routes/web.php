@@ -41,8 +41,16 @@ Route::post('/customer/create',[CustomerController::class,'create'])->name('cust
 //select query in laravel using Eloquent ORM
 
 Route::get('/customer/view',[CustomerController::class,'view'])->name('customer.view');
+//to show the trash data this route will work
+Route::get('/customer/trash',[CustomerController::class,'trash'])->name('customer.trash');
 //deletequery
 Route::get('/customer/delete/{id}',[CustomerController::class,'delete'])->name('customer.delete');
+//permanet delete from the trash
+Route::get('/customer/force-delete/{id}',[CustomerController::class,'forceDelete'])->name('customer.force-delete');
+
+//restore trash data to customer-view
+Route::get('/customer/restore/{id}',[CustomerController::class,'restore'])->name('customer.restore');
+
 //update data from the database
 Route::get('/customer/edit/{id}',[CustomerController::class,'edit'])->name('customer.edit');
 Route::post('customer/update/{id}',[CustomerController::class,'update'])->name('customer.upadte');
@@ -60,10 +68,16 @@ Route::get('get-all-session',function(){
 Route::get('set-session',function(Request $request){
     $request->session()->put('user_name','SN Simanto');
     $request->session()->put('user_id','1');
+    $request->session()->flash('Status','Success');
+
     return redirect('get-all-session');
 
 });
 
 //session helper laravel(data deleting..)
+Route::get('destroy-session',function(){
+    session()->forget('user_name');
+    session()->forget('user_id');
+    return redirect('get-all-session');
 
-
+});
